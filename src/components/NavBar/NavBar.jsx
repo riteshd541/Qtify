@@ -1,10 +1,17 @@
 import React from 'react'
-import Button from '../Button/Button'
+import Button from '../Button/Button';
+import Logo from '../Logo/Logo';
+import styles from "./Navbar.module.css";
+import Search from '../SearchBar/Search';
 
 const NavBar = () => {
   return (
-    <nav> <Button children="Give Feedback" /></nav>
+    <nav className={styles.navbar}>
+      <Logo /> 
+      <Search placeholder="Search a song of your choice"/>
+      <Button children="Give Feedback" />
+    </nav>
   )
 }
 
-export default NavBar
+export default NavBar;
