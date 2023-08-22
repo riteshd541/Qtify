@@ -10,7 +10,6 @@ function Search ({placeholder, data}) {
         <form className={styles.wrapper}>
             <input className={styles.search} placeholder={placeholder} />
             <button className={styles.searchButton} type="submit">
-                <br />
                 <SearchIcon />
             </button>
             
