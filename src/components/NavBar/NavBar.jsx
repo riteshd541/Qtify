@@ -1,17 +1,25 @@
-import React from 'react'
-import Button from '../Button/Button';
-import Logo from '../Logo/Logo';
-import styles from "./Navbar.module.css";
-import Search from '../SearchBar/Search';
+// import { Logo, Modals, Search1, SearchBar } from '../../components';
+import React from 'react';
+import { Logo, Modals, Search1 } from '../../components';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
-const NavBar = () => {
+const NavBar = ({ data }) => {
   return (
-    <nav className={styles.navbar}>
-      <Logo /> 
-      <Search placeholder="Search a song of your choice"/>
-      <Button children="Give Feedback" />
-    </nav>
-  )
-}
+    <>
+      <nav className="navbar">
+        <Link to="/">
+          <Logo />
+        </Link>
+       
+        <Search1 data={data} className="searchbar" />
+
+        <Modals title={'Give Feedback'} />
+      </nav>
+      
+      <Search1 data={data} className="searchbar-moblie" />
+    </>
+  );
+};
 
 export default NavBar;
