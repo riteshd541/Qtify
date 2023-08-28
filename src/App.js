@@ -1,9 +1,15 @@
-import React, { useEffect, useState } from 'react'
-import { Header, NavBar, FAQAccordion, GridSection, Line, MusicPlayer, } from './components';
-import { fetchNewAlbums, fetchTopAlbums, fetchSongs } from './api/api';
+import React, { useEffect, useState } from "react";
+import {
+  Header,
+  NavBar,
+  FAQAccordion,
+  GridSection,
+  Line,
+  MusicPlayer,
+} from "./components";
+import { fetchNewAlbums, fetchTopAlbums, fetchSongs } from "./Api/api";
 
 const App = () => {
-
   const [dataTopAlbums, setDataTopAlbums] = useState([]);
   const [dataNewAlbum, setDataNewAlbum] = useState([]);
   const [dataSong, setDataSong] = useState([]);
@@ -13,33 +19,33 @@ const App = () => {
       const res = await fetchTopAlbums();
       setDataTopAlbums(res);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const getDataNewAlbums = async () => {
     try {
       const res = await fetchNewAlbums();
       setDataNewAlbum(res);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   const getDataSongs = async () => {
     try {
       const res = await fetchSongs();
       setDataSong(res);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
   useEffect(() => {
     getDataTopAlbums();
     getDataNewAlbums();
-    getDataSongs()
-  }, [])
+    getDataSongs();
+  }, []);
 
   return (
     <div>
@@ -48,15 +54,17 @@ const App = () => {
       <GridSection title={"Top Albums"} data={dataTopAlbums} type={"album"} />
       <GridSection title={"New Albums "} data={dataNewAlbum} type={"album"} />
       <Line />
-      <GridSection title={"Songs "} data={dataSong} type={"song"} setDataSong={setDataSong} />
+      <GridSection
+        title={"Songs "}
+        data={dataSong}
+        type={"song"}
+        setDataSong={setDataSong}
+      />
       <FAQAccordion />
       <Line />
       <MusicPlayer data={dataTopAlbums} />
     </div>
-  )
-}
+  );
+};
 
 export default App;
-
-
-

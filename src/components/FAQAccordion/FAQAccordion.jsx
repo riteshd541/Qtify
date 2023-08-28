@@ -6,7 +6,7 @@ import {
   Typography,
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { fetchFaq } from '../../api/api';
+import { fetchFaq } from '../../Api/api';
 
 const FAQAccordion = () => {
   const dataBackUp = [
